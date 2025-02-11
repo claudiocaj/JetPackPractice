@@ -19,9 +19,9 @@ import com.example.jetpackcourse.ui.theme.JetPackCourseTheme
 
 @Composable
 fun RowColumnDemo(modifier: Modifier = Modifier) {
-    Row(
+    Column(
         modifier = Modifier.fillMaxSize(),
-        verticalAlignment = Alignment.CenterVertically,
+        horizontalAlignment = Alignment.CenterHorizontally,
 
     ) {
         Text(
