@@ -1,4 +1,4 @@
-package com.example.jetpackcourse.basicLayout
+package com.example.jetpackcourse.states
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,16 +17,17 @@ import com.example.jetpackcourse.ui.theme.JetPackCourseTheme
 
 
 @Composable
-fun Counter() {
-    var counter by remember {
-        mutableIntStateOf(0)
-    }
+fun Counter(
+    counter: Int,
+    onIncrementClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentAlignment = Alignment.Center
     ) {
         Button(onClick = {
-            counter++
+            onIncrementClick()
         }) {
             Text(text = "Counter: $counter")
         }
@@ -54,7 +55,11 @@ fun CounterThatSavesOnRotate() {
 @Composable
 fun CounterPreview() {
     JetPackCourseTheme {
-        Counter()
+        Counter(
+            0,
+            onIncrementClick = {},
+            modifier = Modifier
+        )
     }
 }
 
